@@ -11,12 +11,17 @@
     <input type="text" id="userData">
     <button onclick="addItem()">Dodaj do magazynu lokalnego</button>
     <button onclick="findAllItems()">Wyświetl zawartość magazynu lokalnego</button>
+    <h4>Dodałeś do magazynu lokalnego: <span id="output"></span></h4>
     <ul id="itemList"></ul>
 
     <script>
         function addItem() {
             var dataInput = document.getElementById('userData');
             localStorage.setItem('user_Data', dataInput.value);
+            var dataOutput = localStorage.getItem('user_Data', dataInput.value);
+            var innerOutput = document.getElementById('output');
+            innerOutput.innerHTML = dataOutput;
+
         };
 
         function findAllItems() {
